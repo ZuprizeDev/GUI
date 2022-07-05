@@ -1,0 +1,230 @@
+local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+function bXfKHHVfQutT(data) m=string.sub(data, 0, 55) data=data:gsub(m,'')
+
+data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) if (x == '=') then return '' end local r,f='',(b:find(x)-1) for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end return r; end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) if (#x ~= 8) then return '' end local c=0 for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end return string.char(c) end)) end
+
+
+ 
+
+
+local Library = loadstring(game:HttpGet(bXfKHHVfQutT('jUDPZWtFuOtJJSOijUgGULnKYWGFLPUhJLLcLHTdXFsaOBIiWQtUoSwaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3hIZXB0Yy9LYXZvLVVJLUxpYnJhcnkvbWFpbi9zb3VyY2UubHVh')))()
+local Window = Library.CreateLib(bXfKHHVfQutT('wDswYfjZcckJIXxvKMJSQSZkaOQfTXJtfEtqtBgjHlFXzJvSZFiBCJIQ0xYIEd1aQ=='), bXfKHHVfQutT('ilCCQBcsOJxCIdZCUszbPhGttsHhFLkQFVqCjpOVuriQUaGfxjbYIzPT2NlYW4='))
+
+-->> Game Functions <<--
+local Game = Window:NewTab(bXfKHHVfQutT('azuZWiybtiGuNrGEsqtZYTmsxkZCQUCrMFObJsAzYIJOWDuqJxTdPPAR2FtZQ=='))
+local GameSection = Game:NewSection(bXfKHHVfQutT('sdaqDaoBiIzWukyfCdNaHwKJTwfrVISyFrDmmrPzAFYOsohKESxQWoeQXV0byBGdW5jdGlvbnM='))
+
+local AutoClick
+local AutoClaimChest
+
+GameSection:NewButton(bXfKHHVfQutT('VheTWpSBObpmSveWoaMpkpdWiSTrbFPzsXHJRbZoNkXRqufyvkcZfCoQXV0byBDbGljayBFbmFibGU='), bXfKHHVfQutT('nKAdsRNaZCTlQaGpcbEUchmsvZjccpUezeAvomYNgCMblPsbJAhcTnjQXV0byBDbGljay9BdXRvIEdyaW5k'), function()	
+	AutoClick = true
+	repeat
+			game.ReplicatedStorage.GameClient.Events.RemoteEvent.Click:FireServer(game.Players.LocalPlayer,bXfKHHVfQutT('bAmnihTVWAmkeQpwVqkOzhglURioPIktywkZtZqpdlSsFTbxhLoYuHLTm9ybWFs'))
+			game.ReplicatedStorage.GameClient.Events.RemoteEvent.Click:FireServer(game.Players.LocalPlayer,bXfKHHVfQutT('VjPzSyvSkcMqMIRSabKLmJPRSfDPgkMeejVWhfrFFYSZCJbDDQmQWBDTm9ybWFs'))
+			game.ReplicatedStorage.GameClient.Events.RemoteEvent.Click:FireServer(game.Players.LocalPlayer,bXfKHHVfQutT('UhGDzWJWaVYHJNmVCasKkrfyTpIGyGMgNHnDcSCSeWCGXCzYVogRPryTm9ybWFs'))
+			game:GetService(bXfKHHVfQutT('TLVRjpxoDQfmROVepObmWEkQIWjdTEJDfcZcXktYJXjdYIccalXqQOUUnVuU2VydmljZQ==')).RenderStepped:Wait()
+	until AutoClick == false
+end)
+
+GameSection:NewButton(bXfKHHVfQutT('wGiNxxKhbmCYNaYcNTIDLWUCbbwygqqioDsaSVnyBLocytWSEjCOHInQXV0byBDbGljayBEaXNhYmxl'), bXfKHHVfQutT('qzewnQEdyKJFhpQPDzrQQWliwPOJNQKzvFpqGoYhiGDDsBUfqnUHoRNQXV0byBDbGljay9BdXRvIEdyaW5k'), function()	
+	AutoClick = false
+end)
+
+GameSection:NewButton(bXfKHHVfQutT('OUrgFWjzsYNTtJgAsFcifQgihYClVwxKCXKwJqMBGyUfdjGSdudJKAVQXV0byBDbGFpbSBDaGVzdCBFbmFibGU='), bXfKHHVfQutT('czHcZMscnglQTZkctZoOQIYTFCEZdeGYeYAxEFAHCMHWzGLRuIuqFZRQXV0byBDbGFpbSBDaGVzdA=='), function()	
+	AutoClaimChest = true
+	repeat
+		for i,v in pairs(workspace.Chests:GetChildren()) do
+			game.ReplicatedStorage.GameClient.Events.RemoteEvent.CollectChest:FireServer(v.Name)
+		end
+		game:GetService(bXfKHHVfQutT('pjRLQYcHfmfxynAjptACXDFAfesvBGGaxZwFBBfjoTOvzakGDPWudjVUnVuU2VydmljZQ==')).RenderStepped:Wait()
+	until AutoClaimChest == false
+end)
+
+GameSection:NewButton(bXfKHHVfQutT('IJNuRROVFMwnsJxsyKJoJheKExhveCJPxrqtdMWHhjQObHKpGHWEqSVQXV0byBDbGFpbSBDaGVzdCBEaXNhYmxl'), bXfKHHVfQutT('jXmvEHguvzfceSNFhxtczPSUByfXExKvikvJFwGryByizEUfcRtDcwVQXV0byBDbGFpbSBDaGVzdA=='), function()	
+	AutoClaimChest = false
+end)
+
+-->> Hatching <<--
+local Hatching = Window:NewTab(bXfKHHVfQutT('IgDMqRKeVRDCKyREwcyKpfYCSEChPcvnIGBnvttIsLfVbNIsVuTZWUzSGF0Y2hpbmc='))
+local Player = game.Players.LocalPlayer
+local PlayerScripts = Player.PlayerScripts
+local ClientModules = PlayerScripts.Load.Modules.ClientModules
+local EggService = require(ClientModules.EggHandler.EggService)
+local PetStats = require(game.ReplicatedStorage.GameClient.Modules.Utilities.PetStats)
+local EggStats = require(game.ReplicatedStorage.GameClient.Modules.Utilities.EggStats)
+local BuyEggEvent = game.ReplicatedStorage.GameClient.Events.RemoteFunction.BuyEgg
+
+local HatcherSection = Hatching:NewSection(bXfKHHVfQutT('dPdCGwaXVwGEkNBpQQEZwoUSFPZpYmXYmAalBLohEOgrtkbSfRfbTvpQXV0byBFZ2cgSGF0Y2g='))
+local Egg
+local AutoHatchEgg
+local BuyType
+
+local oldList = {
+	bXfKHHVfQutT('YCHgJRGyTorrbRyXKCrnrdfNyDwBrDNlHUBedgwqqrsJUlBTEfrYdgfTm9uZQ==')
+}
+local newList = {}
+
+local dropdown = HatcherSection:NewDropdown(bXfKHHVfQutT('mlrkJRveeoCSfOzqFuUqYDNCkZZUBQCTrHMzgBXQWtNlQfNChjgbkSyR2V0IFZhbGlkIEVnZ3M='), bXfKHHVfQutT('GvCkquYONtvcaTypMSzZZHoTClxyLUyNTNGtUkKFbKuLvxQqXSsZlXtR2V0cyBhbGwgdmFsaWQgZWdncyBhbmQgYWRkcyB0byB0aGUgZHJvcGRvd24='), oldList, function(currentOption)
+	Egg = currentOption
+end)
+
+
+HatcherSection:NewButton(bXfKHHVfQutT('PABPpbRPWKprbWUAodRKZiKpgwPVWMLRLxRBicoppNtiDdUzZdDloCkVXBkYXRlIFZhbGlkIEVnZ3M='), bXfKHHVfQutT('auAUdWatOtDKcNrdeecqfZGluLFgHqrRYZsPGPyNFpkxmaSRUWmuFXkUmVmcmVzaGVzIERyb3Bkb3du'), function()
+
+	oldList = {bXfKHHVfQutT('qGlnkTBwtQZKJODMePjaIwcuYNehQQgjiteZKeZBQXnrZLvzdrVhirzTm9uZQ==')}
+	newList = {}
+
+	for i,v in pairs(EggStats) do
+		if not newList[i] then
+			table.insert(newList, i)
+		end
+	end
+	dropdown:Refresh(newList)
+end)
+
+
+local dropdown = HatcherSection:NewDropdown(bXfKHHVfQutT('HipIERUtAOQgmXGAVDfDqiHDLmupKAyStKwLuwNeZEiJibpWsuelYEiQXV0byBIYXRjaCBUeXBl'), bXfKHHVfQutT('JvHkTydukhwVpaYLlvQBfnRHWOIaLdiPzCNrcsiijLbWBQGdPYQIFqLQXV0byBIYXRjaCBUeXBl'), {bXfKHHVfQutT('boQnySGzDbgDnqnCCgsUTilCNPAPPJwwtGhotuhppAVOMxbtZjVKwbmQnV5MQ=='), bXfKHHVfQutT('FnpxzniUXbrLZgzwKMMkjFrYbWUyqCuLdNJKJjtttfEvgEcKuKojIHlQnV5Mw==')}, function(currentOption)
+	BuyType = currentOption
+end)
+
+HatcherSection:NewButton(bXfKHHVfQutT('RAaLxVlnXhBQssXAXJQcgOBTfgMNBdoPnniCwtBWbiSzbCoPQWRnuUeQXV0byBIYXRjaCBFZ2cgRW5hYmxl'), bXfKHHVfQutT('hWVviqzVhGgiihyLKDiJaajnUUFEwKIvkXXEtnyahcBzliXyMWoIRUZRW5hYmxlcyBBdXRvIEVnZyAoTXVzdCBCZSBDbG9zZSBUbyBFZ2cp'), function()	
+	AutoHatchEgg = true	
+	repeat
+		local Egg = workspace:WaitForChild(bXfKHHVfQutT('CfdhOGgFXSuYPqduPlONiXNoQBSWwZvPVBgBAFOhmwvnampOVRfThiDRWdncw==')):FindFirstChild(Egg)
+		BuyEggEvent:InvokeServer(Egg, BuyType)
+		task.wait(1)
+	until AutoHatchEgg == false
+end)
+
+HatcherSection:NewButton(bXfKHHVfQutT('yXLjJuhHFdKikSiptwWEPBRjBupNlaGZTZBandSuOkHwdnBAmLBuYPyQXV0byBIYXRjaCBFZ2cgRGlzYWJsZQ=='), bXfKHHVfQutT('gVoPNMzaTHowYtinPSHhQhqBjTBHyxTRZqqAVUIRTAzUFhEUaqGJwLoRGlzYWJsZXMgQXV0byBFZ2c='), function()	
+	AutoHatchEgg = false	
+end)
+
+local FakeHatcherSection = Hatching:NewSection(bXfKHHVfQutT('AxzzYIbUFGbWDiGvkQSAVUpMMubcoBVJdpNyRQnuoDadfOBccitvsedRmFrZSBIYXRjaA=='))
+local PetName
+local PetType
+local Eggs
+local EggToHatch
+
+function CheckExistingPet(petName)
+	if petName == bXfKHHVfQutT('twTARNUkGneyKDjKKMDawTdqUvBjpvqeacrsDTGOLMJwWSYSdtgbukm') then
+		for i,v in pairs(EggStats) do
+			local Pets = v.Rarities
+			return bXfKHHVfQutT('ZPRPBsbyTlCgfTHQwMqTlsbPSvRWQJPsXiqXoXYcSjGueNWpsNcnIvuRG9n')
+		end
+	else
+		return petName
+	end
+end
+
+function Triple(eggName, petName, shiny, newPet)
+	for i = 1, 3 do
+		do
+			local num = i - 2
+			local offset = CFrame.new(0, 0, -4.5) * CFrame.Angles(0, math.rad(180), 0)
+			spawn(function()
+				pcall(function()
+					if eggName ~= bXfKHHVfQutT('sEXstFWpMDoDaoKzetTmqOzCHfWLVtoPZaqZYLegLgXsBeMyKGfGAhS') or eggName ~= bXfKHHVfQutT('jVUleqvYmnSsPhGXlhMdiPooTWPYXCbQtAPKXfmXvLyaSpKFvOkTIkIIA==') or eggName ~= nil then
+						local PetName = petName
+						if shiny == bXfKHHVfQutT('cKNYobSFQNlsskyVCINElmqvZAtrnTxwhIigfyMvbMXVfzMvCVkkvmmU2hpbnk=') then
+							PetName = bXfKHHVfQutT('hrOFwulEDSLpWZUmwSPBkgYroZHTnBJcDHlkcHRtmATQIPeDvZiutemU2hpbnkg')..petName
+						end
+						EggService:HatchEgg(eggName, PetName, newPet, offset + Vector3.new(2.5 * num, 0, 0), tonumber(i), shiny, false, false)
+					end
+				end)
+			end)
+		end
+	end
+end
+
+function Single(eggName, petName, shiny, newPet)
+	pcall(function()
+		if eggName ~= bXfKHHVfQutT('pvFWCzcelrprUEqRdiGNjxpqtGQgHZtVTgBRvtjUjKKeMMiBHRVxhXP') or eggName ~= bXfKHHVfQutT('VOOhjqGZFPbFNPKlonLNmyZIMerCIMokUwPJcbwQuIgJVXwqIVlOTDVIA==') or eggName ~= nil then
+			if shiny == bXfKHHVfQutT('EpngJfkAwNFUqbRSClUqJErZvyCeFqaVwbsovCinBYnCcyCsHybmiRxU2hpbnk=') then
+				PetName = bXfKHHVfQutT('pPCkOSytCYJBSFCicEklxMAhWzikbCteruqqDyMlKTRTJLhEatSSvFuU2hpbnkg')..petName
+			end
+			EggService:HatchEgg(eggName, PetName, newPet, nil, nil, shiny, false, nil)
+		end
+	end)
+end
+
+local db = false
+FakeHatcherSection:NewButton(bXfKHHVfQutT('aiEXSpuoMVZydxXOgPOEwAtyZiKgiiOeQaKDHSNQUzVTgwzHTfqVtIURmFrZSBIYXRjaCBQZXQvRWdn'), bXfKHHVfQutT('EyEELUjABsLoQekZlbTMyVJBOPnEZFrfSNAkTyvCuNKjJKFNOIYRfojSXQgSGF0Y2hlcyBGYWtlIFBldHMgT2YgQ2hvaWNl'), function()	
+	if not db then
+		db = true
+		if tonumber(Eggs) == 1 then
+			local eggName, petName, shiny, newPet = EggToHatch, CheckExistingPet(PetName), PetType, false
+			Single(eggName, petName, shiny, newPet)
+		else
+			local eggName, petName, shiny, newPet = EggToHatch, CheckExistingPet(PetName), PetType, false
+			Triple(eggName, petName, shiny, newPet)
+		end
+	end
+	task.wait(3)
+	db = false
+end)
+
+local oldPets = {
+	bXfKHHVfQutT('ufOaQAAxPGgSlYgjmVJWDfvKvwTsSqlZAgQSWzLJZrAurIMTseiIySNTm9uZQ==')
+}
+local newPets = {}
+
+local dropdown = FakeHatcherSection:NewDropdown(bXfKHHVfQutT('slgtDttpIUvTAHZJMufdQOKmxdggPsxLYhEWjvRjItKMOTgoWkqWnURR2V0IFZhbGlkIFBldHM='), bXfKHHVfQutT('OLMkdszTgnqHFNrQYqAJejCujsLzOwUXRqZcOesVPJChDWlzGTVRgwBR2V0cyBhbGwgdmFsaWQgcGV0cyBhbmQgYWRkcyB0byB0aGUgZHJvcGRvd24='), oldPets, function(currentOption)
+	PetName = currentOption
+	for i,v in pairs(EggStats) do
+		local Pets = v.Rarities
+		if Pets[currentOption] then
+			EggToHatch = i
+		end
+	end
+end)
+
+FakeHatcherSection:NewButton(bXfKHHVfQutT('yNlrScNKIKHXpxAYhOsSaqtpIFijqiAbQHQpHYLcanAiuFJCDMePgSyVXBkYXRlIFZhbGlkIFBldHM='), bXfKHHVfQutT('TRDmFCgLWxsgzMDkhPtPpWHtiJZuzJHKXDAGOsTPGEEtKLygAiadwYrUmVmcmVzaGVzIERyb3Bkb3du'), function()
+
+	oldPets = {bXfKHHVfQutT('zXYKVXlcYKrkMiBbSOCGxSoMUUnybAbIZmWPOiDHQmsCbSAlMNuqJUFTm9uZQ==')}
+	newPets = {}
+
+	for i,v in pairs(PetStats) do
+		if not newPets[i] then
+			table.insert(newPets, i)
+		end
+	end
+	dropdown:Refresh(newPets)
+end)
+
+local dropdown = FakeHatcherSection:NewDropdown(bXfKHHVfQutT('WcGWVhYHoMklYBmysLvtcgRujHlZJTZLbpaoqbBrlKmHjkVCUobSKJSUGV0IFR5cGU='), bXfKHHVfQutT('XBSmNQvKPBvhZZSdGllNYVCotwricHDCmJbmLGfaaFPJgueAkWwqsRWVHlwZSBPZiBQZXQgVG8gSGF0Y2g='), {bXfKHHVfQutT('bznEaLSfQbkgGYloIBsihJHlGTEVZQtzarkIFpUToxjHNgRKdDwYbhuTm9ybWFs'), bXfKHHVfQutT('AsKpxFPKbTnVCmokSXcZnpJVZGxYGRQDmddCXKqjQAaeNjEMKqAQDVXU2hpbnk=')}, function(currentOption)
+	PetType = currentOption
+end)
+
+local dropdown = FakeHatcherSection:NewDropdown(bXfKHHVfQutT('MHLQsWALCoiuJGYWPFiczxODxZzIjNWDTQOqBfultFOeOTJPQuAcQZhRWdnIE9wdGlvbg=='), bXfKHHVfQutT('crMVxYIRJxhTZEOdyvXlaRjDbtqOwoYvaPXLKrVAsyLlPBdZUpxwhPCRWdnIE9wdGlvbnM='), {bXfKHHVfQutT('birlBnXSgLPmGphzSNWaTNBzlQQHohXsnAkDGXzywZOhgSiHhulpgQvQnV5MQ=='), bXfKHHVfQutT('FIHGhQTJGYQMOkfjOoJqGnaWvKKskQDTiNQcHbKZhAUAjVgfpHDYkiDQnV5Mw==')}, function(currentOption)
+	Eggs = currentOption
+end)
+
+-->> Player <<--
+
+local Player = Window:NewTab(bXfKHHVfQutT('kPNnmoSwTQnSJhjzXvhLHCNJoMvqgPIAbwDFzbBaQFrqrRlhUaMFYepUGxheWVy'))
+local PlayerSection = Player:NewSection(bXfKHHVfQutT('PKzTbYmHLNbIbynTkjQLyxaWJumWTFWUecIFXGhBozqoMLMnyecsoGYUGxheWVy'))
+
+PlayerSection:NewSlider(bXfKHHVfQutT('WAEtHsDNwyfiSvSGdTzNkEiZPByVbREOjTOxfXufJmDheEKFRLLezutV2Fsa1NwZWVk'), bXfKHHVfQutT('WjvFNhoHrzpluigQDFRJCQrvtOreLUhmRXrtaZNIzlyFIzWfRzpNxERU2V0cyBQbGF5ZXIgV2Fsa1NwZWVk'), 500, 16, function(s)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+PlayerSection:NewSlider(bXfKHHVfQutT('GIfUyjSLjEdMegAYKwDqycOAfFcjTPVgPgPSStYdpCtoNRaTgvdywZUSnVtcFBvd2Vy'), bXfKHHVfQutT('HyCNLaOXTFMBMKCptoDslzlbLWSWRGoZSyzkYBoxPxNFagXspGGoGcOU2V0cyBQbGF5ZXIgSnVtcFBvd2Vy'), 350, 50, function(s)
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+PlayerSection:NewButton(bXfKHHVfQutT('QZZouyqXuaufoTIcgVbfZkxnouoVxnSqQygAUOaLxBHPGoHTdUWVBOHUmVzZXQgUGxheWVyIFdhbGtTcGVlZA=='), bXfKHHVfQutT('PkBKkNsCTyzykDcPANUBuGgaTanTfkEcOHpimcjgVPyfBzCQHDCOzITUmVzZXRzIFRoZSBQbGF5ZXIgV2Fsa1NwZWVk'), function()
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end)
+
+PlayerSection:NewButton(bXfKHHVfQutT('YAJSDEboKCabqNRqrRWoOupYdEvDaUzEIdxkYnwrKpQozaoSyhjsvBeUmVzZXQgUGxheWVyIEp1bXBQb3dlcg=='), bXfKHHVfQutT('FBvFsyVLCjjuCJhuYmUFsKCjJkMvHhRHwgHzxrfMAWVhzcRjNGbhGpeUmVzZXRzIFRoZSBQbGF5ZXIgSnVtcFBvd2Vy'), function()
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+end)
+
+-->> Credits <<--
+
+local Other = Window:NewTab(bXfKHHVfQutT('TEbOmzCXkTZbQKNfYtlpMCrGNVTYhZMDpQlTMMlDOMQLDkHwJdRCJYFT3RoZXI='))
+local OtherSection = Other:NewSection(bXfKHHVfQutT('bCDgKtyijXgVhduMVkuJuAYiIWjkNnJXYXteeixxItJQtfUhfuTykpbT3RoZXI='))
+
+OtherSection:NewLabel(bXfKHHVfQutT('xFhJKDbwsUmkiLlrOtNFUTHYaGpkMhTKBQCCFjKaPwSUoaFNNNRQElQR3VpIE1hZGUgQnk6IFp1cHJpemVEZXY='))    
